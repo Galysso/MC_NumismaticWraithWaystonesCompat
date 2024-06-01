@@ -22,19 +22,27 @@ import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.ResourceType;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 import static com.glisco.numismaticoverhaul.NumismaticOverhaul.*;
 
-@Mixin(value = NumismaticOverhaul.class)
+@Mixin(value = NumismaticOverhaul.class, remap = false)
 public class NumismaticOverhaulMixin {
+
+    private static boolean anyMatch(Identifier target, Identifier... comparisons) {
+        for (Identifier comparison : comparisons) {
+            if (target.equals(comparison)) return true;
+        }
+        return false;
+    }
 
     /**
      * @author Galysso
      * @reason Register all the things
      */
-    /*@Overwrite
+    @Overwrite
     public void onInitialize() {
         FieldRegistrationHandler.register(NumismaticOverhaulItems.class, MOD_ID, false);
         FieldRegistrationHandler.register(NumismaticOverhaulBlocks.class, MOD_ID, false);
@@ -62,9 +70,6 @@ public class NumismaticOverhaulMixin {
         NUMISMATIC_GROUP.initialize();
 
         if (CONFIG.generateCurrencyInChests()) {
-            LootOps.injectItem(NumismaticOverhaulItems.GOLD_COIN, .01f, LootTables.STRONGHOLD_LIBRARY_CHEST, LootTables.BASTION_TREASURE_CHEST, LootTables.STRONGHOLD_CORRIDOR_CHEST,
-                    LootTables.PILLAGER_OUTPOST_CHEST, LootTables.BURIED_TREASURE_CHEST, LootTables.SIMPLE_DUNGEON_CHEST, LootTables.ABANDONED_MINESHAFT_CHEST);
-
             LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
                 if (anyMatch(id, LootTables.DESERT_PYRAMID_CHEST)) {
                     tableBuilder.pool(LootPool.builder().with(MoneyBagLootEntry.builder(CONFIG.lootOptions.desertMinLoot(), CONFIG.lootOptions.desertMaxLoot()))
@@ -81,5 +86,5 @@ public class NumismaticOverhaulMixin {
                 }
             });
         }
-    }*/
+    }
 }

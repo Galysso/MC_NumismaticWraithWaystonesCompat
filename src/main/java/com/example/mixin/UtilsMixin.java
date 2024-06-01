@@ -1,39 +1,23 @@
 package com.example.mixin;
 
-import com.ibm.icu.util.MeasureUnit;
-import net.minecraft.entity.player.HungerManager;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import wraith.fwaystones.FabricWaystones;
-import wraith.fwaystones.access.WaystoneValue;
-import wraith.fwaystones.block.WaystoneBlockEntity;
-import wraith.fwaystones.util.FWConfigModel;
-import wraith.fwaystones.util.TeleportSources;
 import wraith.fwaystones.util.Utils;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import static java.lang.Math.min;
 import static net.minecraft.util.math.MathHelper.floor;
 import static wraith.fwaystones.util.Utils.*;
-import net.minecraft.registry.Registries;
 
 import com.glisco.numismaticoverhaul.ModComponents;
 
-@Mixin(Utils.class)
-public class ExampleMixin {
+@Mixin(value = Utils.class, remap = false)
+public class UtilsMixin {
 	private static Identifier copperId = new Identifier("numismatic-overhaul", "copper_coin");
 	private static Identifier silverIO = new Identifier("numismatic-overhaul", "silver_coin");
 	private static Identifier goldId = new Identifier("numismatic-overhaul", "gold_coin");
