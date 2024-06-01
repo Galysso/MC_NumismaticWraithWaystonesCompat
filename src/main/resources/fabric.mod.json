@@ -20,16 +20,12 @@
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
+		"nwwc.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.10",
 		"minecraft": "~1.20.1",
-		"java": ">=21",
+		"java": ">=17",
 		"fabric-api": "*"
 	},
 	"suggests": {
