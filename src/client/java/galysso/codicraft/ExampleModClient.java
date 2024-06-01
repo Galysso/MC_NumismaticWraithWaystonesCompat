@@ -1,4 +1,4 @@
-package com.example;
+package galysso.codicraft;
 
 import net.fabricmc.api.ClientModInitializer;
 

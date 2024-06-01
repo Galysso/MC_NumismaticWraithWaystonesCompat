@@ -1,4 +1,4 @@
-package com.example.mixin;
+package galysso.codicraft.mixin;
 
 import com.glisco.numismaticoverhaul.NumismaticCommand;
 import com.glisco.numismaticoverhaul.NumismaticOverhaul;

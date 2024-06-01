@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "com.example.mixin",
+	"package": "galysso.codicraft.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-      	"UtilsMixin",
+		"UtilsMixin",
 		"NumismaticOverhaulMixin"
 	],
 	"injectors": {

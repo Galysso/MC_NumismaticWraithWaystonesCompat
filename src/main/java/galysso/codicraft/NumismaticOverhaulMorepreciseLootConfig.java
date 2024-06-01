@@ -1,4 +1,4 @@
-package com.example;
+package galysso.codicraft;
 
 import com.glisco.numismaticoverhaul.NumismaticOverhaulConfig;
 import com.glisco.numismaticoverhaul.NumismaticOverhaulConfigModel;

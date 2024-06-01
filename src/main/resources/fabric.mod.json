@@ -16,10 +16,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+          "galysso.codicraft.ExampleMod"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+          "galysso.codicraft.ExampleModClient"
 		]
 	},
 	"mixins": [

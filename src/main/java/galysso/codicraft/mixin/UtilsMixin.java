@@ -1,4 +1,4 @@
-package com.example.mixin;
+package galysso.codicraft.mixin;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
