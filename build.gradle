@@ -16,6 +16,27 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+	maven   { url = "https://maven.wispforest.io/" }
+	maven {
+		url "https://cursemaven.com"
+		content {
+			includeGroup "curse.maven"
+		}
+	}
+	mavenCentral()
+
+	maven   { url = "https://maven.ladysnake.org/releases" }
 }
 
 loom {
@@ -38,7 +59,14 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+
+	//modCompileOnly "curse.maven:owo-lib:532610-4749199"
+	//modImplementation "maven.modrinth:lithium:mc1.19.2-0.10.0"
+	modImplementation "io.wispforest:owo-lib:0.11.2+1.20"
+	modImplementation "curse.maven:numismatic-overhaul-568316:5113697"
+	modImplementation "curse.maven:fabric-waystones-410902:4950461"
+	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.1")
+	modImplementation include("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.1")
 }
 
 processResources {
